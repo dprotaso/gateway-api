@@ -32,7 +32,7 @@ esac
 
 # Move GEPs to site-src
 rm -rf site-src/geps
-cp -r geps site-src/geps
+ln -s $PWD/geps $PWD/site-src/geps
 
 # Ensure site dir exists
 mkdir -p site
