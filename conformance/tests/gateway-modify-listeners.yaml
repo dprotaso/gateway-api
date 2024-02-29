@@ -59,6 +59,7 @@ spec:
   - name: http
     port: 80
     protocol: HTTP
+    hostname: "*.avi.lol"
     allowedRoutes:
       namespaces:
         from: All

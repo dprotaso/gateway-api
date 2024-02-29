@@ -51,7 +51,7 @@ ROOT := $(abspath $(TOP))
 
 # Command-line flags passed to "go test" for the conformance
 # test. These are passed after the "-args" flag.
-CONFORMANCE_FLAGS ?=
+CONFORMANCE_FLAGS ?=-gateway-class=avi-lb -cleanup-base-resources=false
 GO_TEST_FLAGS ?=
 
 all: generate vet fmt verify test
