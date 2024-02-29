@@ -49,28 +49,28 @@ var HTTPRouteMatchingAcrossRoutes = suite.ConformanceTest{
 
 		testCases := []http.ExpectedResponse{{
 			Request: http.Request{
-				Host: "example.com",
+				Host: "example.avi.lol",
 				Path: "/",
 			},
 			Backend:   "infra-backend-v1",
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				Host: "example.com",
+				Host: "example.avi.lol",
 				Path: "/example",
 			},
 			Backend:   "infra-backend-v1",
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				Host: "example.net",
+				Host: "example.net.avi.lol",
 				Path: "/example",
 			},
 			Backend:   "infra-backend-v1",
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				Host:    "example.com",
+				Host:    "example.avi.lol",
 				Path:    "/example",
 				Headers: map[string]string{"Version": "one"},
 			},
@@ -78,29 +78,29 @@ var HTTPRouteMatchingAcrossRoutes = suite.ConformanceTest{
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				Host: "example.com",
+				Host: "example.avi.lol",
 				Path: "/v2",
 			},
 			Backend:   "infra-backend-v2",
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				// v2 matches are limited to example.com
-				Host: "example.net",
+				// v2 matches are limited to example.avi.lol
+				Host: "example.net.avi.lol",
 				Path: "/v2",
 			},
 			Backend:   "infra-backend-v1",
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				Host: "example.com",
+				Host: "example.avi.lol",
 				Path: "/v2/example",
 			},
 			Backend:   "infra-backend-v2",
 			Namespace: ns,
 		}, {
 			Request: http.Request{
-				Host:    "example.com",
+				Host:    "example.avi.lol",
 				Path:    "/",
 				Headers: map[string]string{"Version": "two"},
 			},

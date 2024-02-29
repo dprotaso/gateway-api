@@ -12,21 +12,21 @@ spec:
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: very.specific.com
+    hostname: very.specific.avi.lol
   - name: listener-2
     port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: "*.wildcard.io"
+    hostname: "*.wildcard.avi.lol"
   - name: listener-3
     port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: "*.anotherwildcard.io"
+    hostname: "*.anotherwildcard.avi.lol"
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -38,6 +38,7 @@ spec:
   listeners:
   - name: listener-1
     port: 80
+    hostname: "*.avi.lol"
     protocol: HTTP
     allowedRoutes:
       namespaces:
@@ -53,9 +54,9 @@ spec:
   - name: httproute-hostname-intersection
     namespace: gateway-conformance-infra
   hostnames:
-  - non.matching.com
-  - "*.nonmatchingwildcard.io"
-  - very.specific.com  #  matches listener-1's specific host
+  - non.matching.avi.lol
+  - "*.nonmatchingwildcard.avi.lol"
+  - very.specific.avi.lol #  matches listener-1's specific host
   rules:
   - matches:
     - path:
@@ -75,11 +76,11 @@ spec:
   - name: httproute-hostname-intersection
     namespace: gateway-conformance-infra
   hostnames:
-  - non.matching.com
-  - wildcard.io
-  - foo.wildcard.io  #  matches listener-2's wildcard host
-  - bar.wildcard.io  #  matches listener-2's wildcard host
-  - foo.bar.wildcard.io  #  matches listener-2's wildcard host
+  - non.matching.avi.lol
+  - wildcard.avi.lol
+  - foo.wildcard.avi.lol #  matches listener-2's wildcard host
+  - bar.wildcard.avi.lol  #  matches listener-2's wildcard host
+  - foo.bar.wildcard.lol #  matches listener-2's wildcard host
   rules:
   - matches:
     - path:
@@ -99,8 +100,8 @@ spec:
   - name: httproute-hostname-intersection
     namespace: gateway-conformance-infra
   hostnames:
-  - non.matching.com
-  - "*.specific.com"  # matches listener-1's specific host
+  - non.matching.avi.lol
+  - "*.specific.avi.lol"  # matches listener-1's specific host
   rules:
   - matches:
     - path:
@@ -120,7 +121,7 @@ spec:
   - name: httproute-hostname-intersection
     namespace: gateway-conformance-infra
   hostnames:
-  - "*.anotherwildcard.io"  # matches listener-3's wildcard host
+  - "*.anotherwildcard.avi.lol"  # matches listener-3's wildcard host
   rules:
   - matches:
     - path:
@@ -140,8 +141,8 @@ spec:
   - name: httproute-hostname-intersection
     namespace: gateway-conformance-infra
   hostnames:
-  - specific.but.wrong.com
-  - wildcard.io
+  - specific.but.wrong.avi.lol
+  - wildcard.avi.lol
   rules:
   - matches:
     - path:
@@ -161,10 +162,10 @@ spec:
   - name: httproute-hostname-intersection-all
     namespace: gateway-conformance-infra
   hostnames:
-  - first.com
-  - sub.first.com
-  - second.com
-  - sub.second.com
+  - first.avi.lol
+  - sub.first.avi.lol
+  - second.avi.lol
+  - sub.second.avi.lol
   rules:
   - backendRefs:
     - name: infra-backend-v2

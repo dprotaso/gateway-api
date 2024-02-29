@@ -53,7 +53,7 @@ var HTTPRouteTLSListener = suite.ConformanceTest{
 		}
 
 		t.Run("Simple HTTPS request should reach infra-backend", func(t *testing.T) {
-			tls.MakeTLSRequestAndExpectEventuallyConsistentResponse(t, suite.RoundTripper, suite.TimeoutConfig, gwAddr, cPem, keyPem, "example.org", http.ExpectedResponse{
+			tls.MakeTLSRequestAndExpectEventuallyConsistentResponse(t, suite.RoundTripper, suite.TimeoutConfig, gwAddr, cPem, keyPem, "example.avi.lol", http.ExpectedResponse{
 				Request:   http.Request{Host: "example.org", Path: "/"},
 				Response:  http.Response{StatusCode: 200},
 				Backend:   "infra-backend-v1",

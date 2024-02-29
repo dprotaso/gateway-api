@@ -8,6 +8,7 @@ spec:
   listeners:
   - name: http
     port: 8080
+    hostname: "*.avi.lol"
     protocol: HTTP
     allowedRoutes:
       namespaces:

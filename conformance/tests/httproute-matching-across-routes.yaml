@@ -7,8 +7,8 @@ spec:
   parentRefs:
   - name: same-namespace
   hostnames:
-  - example.com
-  - example.net
+  - example.avi.lol
+  - example.net.avi.lol
   rules:
   - matches:
     - path:
@@ -28,7 +28,7 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   hostnames:
-  - example.com
+  - example.avi.lol
   parentRefs:
   - name: same-namespace
   rules:

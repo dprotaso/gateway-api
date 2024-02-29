@@ -8,6 +8,7 @@ spec:
   listeners:
   - name: tls
     port: 443
+    hostname: "*.avi.lol"
     protocol: TLS
     tls:
       mode: Passthrough

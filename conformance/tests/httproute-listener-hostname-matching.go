@@ -60,31 +60,31 @@ var HTTPRouteListenerHostnameMatching = suite.ConformanceTest{
 		kubernetes.HTTPRouteMustHaveResolvedRefsConditionsTrue(t, suite.Client, suite.TimeoutConfig, routeNN3, gwNN)
 
 		testCases := []http.ExpectedResponse{{
-			Request:   http.Request{Host: "bar.com", Path: "/"},
+			Request:   http.Request{Host: "bar.avi.lol", Path: "/"},
 			Backend:   "infra-backend-v1",
 			Namespace: ns,
 		}, {
-			Request:   http.Request{Host: "foo.bar.com", Path: "/"},
+			Request:   http.Request{Host: "foo.bar.avi.lol", Path: "/"},
 			Backend:   "infra-backend-v2",
 			Namespace: ns,
 		}, {
-			Request:   http.Request{Host: "baz.bar.com", Path: "/"},
+			Request:   http.Request{Host: "baz.bar.avi.lol", Path: "/"},
 			Backend:   "infra-backend-v3",
 			Namespace: ns,
 		}, {
-			Request:   http.Request{Host: "boo.bar.com", Path: "/"},
+			Request:   http.Request{Host: "boo.bar.avi.lol", Path: "/"},
 			Backend:   "infra-backend-v3",
 			Namespace: ns,
 		}, {
-			Request:   http.Request{Host: "multiple.prefixes.bar.com", Path: "/"},
+			Request:   http.Request{Host: "multiple.prefixes.bar.avi.lol", Path: "/"},
 			Backend:   "infra-backend-v3",
 			Namespace: ns,
 		}, {
-			Request:   http.Request{Host: "multiple.prefixes.foo.com", Path: "/"},
+			Request:   http.Request{Host: "multiple.prefixes.foo.avi.lol", Path: "/"},
 			Backend:   "infra-backend-v3",
 			Namespace: ns,
 		}, {
-			Request:  http.Request{Host: "foo.com", Path: "/"},
+			Request:  http.Request{Host: "foo.avi.lol", Path: "/"},
 			Response: http.Response{StatusCode: 404},
 		}, {
 			Request:  http.Request{Host: "no.matching.host", Path: "/"},

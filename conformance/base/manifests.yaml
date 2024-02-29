@@ -23,6 +23,7 @@ spec:
   listeners:
   - name: http
     port: 80
+    hostname: "*.avi.lol"
     protocol: HTTP
     allowedRoutes:
       namespaces:
@@ -37,6 +38,7 @@ spec:
   gatewayClassName: "{GATEWAY_CLASS_NAME}"
   listeners:
   - name: https
+    hostname: "*.avi.lol"
     port: 443
     protocol: HTTPS
     allowedRoutes:
@@ -58,6 +60,7 @@ spec:
   gatewayClassName: "{GATEWAY_CLASS_NAME}"
   listeners:
   - name: http
+    hostname: "*.avi.lol"
     port: 80
     protocol: HTTP
     allowedRoutes:
@@ -73,6 +76,7 @@ spec:
   gatewayClassName: "{GATEWAY_CLASS_NAME}"
   listeners:
   - name: http
+    hostname: "*.avi.lol"
     port: 80
     protocol: HTTP
     allowedRoutes:

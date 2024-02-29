@@ -12,28 +12,28 @@ spec:
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: bar.com
+    hostname: bar.avi.lol
   - name: listener-2
     port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: foo.bar.com
+    hostname: foo.bar.avi.lol
   - name: listener-3
     port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: "*.bar.com"
+    hostname: "*.bar.avi.lol"
   - name: listener-4
     port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: "*.foo.com"
+    hostname: "*.foo.avi.lol"
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute

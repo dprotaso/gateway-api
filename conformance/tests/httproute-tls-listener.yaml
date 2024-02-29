@@ -7,7 +7,7 @@ spec:
   parentRefs:
   - name: same-namespace-with-https-listener
   hostnames:
-  - example.org
+  - example.avi.lol
   rules:
   - backendRefs:
     - name: infra-backend-v1

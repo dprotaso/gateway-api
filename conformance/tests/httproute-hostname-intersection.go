@@ -65,31 +65,31 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 			// Test cases for HTTPRoute "specific-host-matches-listener-specific-host".
 			testCases = append(testCases,
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "very.specific.com", Path: "/s1"},
+					Request:   http.Request{Host: "very.specific.avi.lol", Path: "/s1"},
 					Backend:   "infra-backend-v1",
 					Namespace: ns,
 				},
 				// Port value within the Host header MUST not be considered while
 				// performing match against hostname.
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "very.specific.com:1234", Path: "/s1"},
+					Request:   http.Request{Host: "very.specific.avi.lol:1234", Path: "/s1"},
 					Backend:   "infra-backend-v1",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "non.matching.com", Path: "/s1"},
+					Request:  http.Request{Host: "non.matching.avi.lol", Path: "/s1"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.nonmatchingwildcard.io", Path: "/s1"},
+					Request:  http.Request{Host: "foo.nonmatchingwildcard.avi.lol", Path: "/s1"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.wildcard.io", Path: "/s1"},
+					Request:  http.Request{Host: "foo.wildcard.avi.lol", Path: "/s1"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "very.specific.com", Path: "/non-matching-prefix"},
+					Request:  http.Request{Host: "very.specific.avi.lol", Path: "/non-matching-prefix"},
 					Response: http.Response{StatusCode: 404},
 				},
 			)
@@ -97,17 +97,17 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 			//  Test cases for HTTPRoute "specific-host-matches-listener-wildcard-host".
 			testCases = append(testCases,
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "foo.wildcard.io", Path: "/s2"},
+					Request:   http.Request{Host: "foo.wildcard.avi.lol", Path: "/s2"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "bar.wildcard.io", Path: "/s2"},
+					Request:   http.Request{Host: "bar.wildcard.avi.lol", Path: "/s2"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "foo.bar.wildcard.io", Path: "/s2"},
+					Request:   http.Request{Host: "foo.bar.wildcard.avi.lol", Path: "/s2"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
@@ -116,16 +116,16 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "wildcard.io", Path: "/s2"},
+					Request:  http.Request{Host: "wildcard.avi.lol", Path: "/s2"},
 					Response: http.Response{StatusCode: 404},
 				},
 
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "very.specific.com", Path: "/s2"},
+					Request:  http.Request{Host: "very.specific.avi.lol", Path: "/s2"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.wildcard.io", Path: "/non-matching-prefix"},
+					Request:  http.Request{Host: "foo.wildcard.avi.lol", Path: "/non-matching-prefix"},
 					Response: http.Response{StatusCode: 404},
 				},
 			)
@@ -133,24 +133,24 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 			//  Test cases for HTTPRoute "wildcard-host-matches-listener-specific-host".
 			testCases = append(testCases,
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "very.specific.com", Path: "/s3"},
+					Request:   http.Request{Host: "very.specific.avi.lol", Path: "/s3"},
 					Backend:   "infra-backend-v3",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "non.matching.com", Path: "/s3"},
+					Request:  http.Request{Host: "non.matching.avi.lol", Path: "/s3"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.specific.com", Path: "/s3"},
+					Request:  http.Request{Host: "foo.specific.avi.lol", Path: "/s3"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.wildcard.io", Path: "/s3"},
+					Request:  http.Request{Host: "foo.wildcard.avi.lol", Path: "/s3"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "very.specific.com", Path: "/non-matching-prefix"},
+					Request:  http.Request{Host: "very.specific.avi.lol", Path: "/non-matching-prefix"},
 					Response: http.Response{StatusCode: 404},
 				},
 			)
@@ -158,35 +158,35 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 			//  Test cases for HTTPRoute "wildcard-host-matches-listener-wildcard-host".
 			testCases = append(testCases,
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "foo.anotherwildcard.io", Path: "/s4"},
+					Request:   http.Request{Host: "foo.anotherwildcard.avi.lol", Path: "/s4"},
 					Backend:   "infra-backend-v1",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "bar.anotherwildcard.io", Path: "/s4"},
+					Request:   http.Request{Host: "bar.anotherwildcard.avi.lol", Path: "/s4"},
 					Backend:   "infra-backend-v1",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "foo.bar.anotherwildcard.io", Path: "/s4"},
+					Request:   http.Request{Host: "foo.bar.anotherwildcard.avi.lol", Path: "/s4"},
 					Backend:   "infra-backend-v1",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "anotherwildcard.io", Path: "/s4"},
+					Request:  http.Request{Host: "anotherwildcard.avi.lol", Path: "/s4"},
 					Response: http.Response{StatusCode: 404},
 				},
 
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.wildcard.io", Path: "/s4"},
+					Request:  http.Request{Host: "foo.wildcard.avi.lol", Path: "/s4"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "very.specific.com", Path: "/s4"},
+					Request:  http.Request{Host: "very.specific.avi.lol", Path: "/s4"},
 					Response: http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:  http.Request{Host: "foo.anotherwildcard.io", Path: "/non-matching-prefix"},
+					Request:  http.Request{Host: "foo.anotherwildcard.avi.lol", Path: "/non-matching-prefix"},
 					Response: http.Response{StatusCode: 404},
 				},
 			)
@@ -222,11 +222,11 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 
 			testCases := []http.ExpectedResponse{
 				{
-					Request:  http.Request{Host: "specific.but.wrong.com", Path: "/s5"},
+					Request:  http.Request{Host: "specific.but.wrong.avi.lol", Path: "/s5"},
 					Response: http.Response{StatusCode: 404},
 				},
 				{
-					Request:  http.Request{Host: "wildcard.io", Path: "/s5"},
+					Request:  http.Request{Host: "wildcard.avi.lol", Path: "/s5"},
 					Response: http.Response{StatusCode: 404},
 				},
 			}
@@ -255,33 +255,33 @@ var HTTPRouteHostnameIntersection = suite.ConformanceTest{
 			var testCases []http.ExpectedResponse
 			testCases = append(testCases,
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "first.com", Path: "/"},
+					Request:   http.Request{Host: "first.avi.lol", Path: "/"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "sub.first.com", Path: "/"},
+					Request:   http.Request{Host: "sub.first.avi.lol", Path: "/"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "second.com", Path: "/"},
+					Request:   http.Request{Host: "second.avi.lol", Path: "/"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "sub.second.com", Path: "/"},
+					Request:   http.Request{Host: "sub.second.avi.lol", Path: "/"},
 					Backend:   "infra-backend-v2",
 					Namespace: ns,
 				},
 				// Following should fail since it is not specified on the HTTPRoute
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "third.com", Path: "/"},
+					Request:   http.Request{Host: "third.avi.lol", Path: "/"},
 					Namespace: ns,
 					Response:  http.Response{StatusCode: 404},
 				},
 				http.ExpectedResponse{
-					Request:   http.Request{Host: "sub.third.com", Path: "/"},
+					Request:   http.Request{Host: "sub.third.avi.lol", Path: "/"},
 					Namespace: ns,
 					Response:  http.Response{StatusCode: 404},
 				},

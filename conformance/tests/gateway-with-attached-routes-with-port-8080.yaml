@@ -8,6 +8,7 @@ spec:
   listeners:
   - name: http-unattached
     port: 8080
+    hostname: "*.avi.lol"
     protocol: HTTP
     allowedRoutes:
       kinds:
@@ -17,6 +18,7 @@ spec:
   - name: http
     port: 80
     protocol: HTTP
+    hostname: "*.avi.lol"
     allowedRoutes:
       kinds:
       - kind: HTTPRoute

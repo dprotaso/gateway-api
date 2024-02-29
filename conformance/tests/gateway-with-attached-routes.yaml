@@ -8,6 +8,7 @@ spec:
   listeners:
   - name: http
     port: 80
+    hostname: "*.avi.lol"
     protocol: HTTP
     allowedRoutes:
       kinds:
@@ -46,6 +47,7 @@ spec:
   - name: http
     port: 80
     protocol: HTTP
+    hostname: "*.avi.lol"
     allowedRoutes:
       kinds:
       - kind: HTTPRoute
@@ -97,6 +99,7 @@ spec:
   listeners:
   - name: tls
     port: 443
+    hostname: "*.avi.lol"
     protocol: HTTPS
     allowedRoutes:
       kinds:
