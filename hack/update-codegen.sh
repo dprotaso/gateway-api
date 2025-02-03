@@ -50,5 +50,6 @@ echo "Generating CRDs"
 go run ./pkg/generator
 
 
-./hack/update-clientset.sh 
+./hack/update-clientset.sh
+./hack/update-clientset.sh experimental
 ./hack/update-protos.sh
